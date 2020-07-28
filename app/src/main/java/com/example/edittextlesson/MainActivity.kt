@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,15 @@ class MainActivity : AppCompatActivity() {
     4. make result text visible
     5. hide keyboard
      */
+
+    fun resultButtonClicked(view: View) {
+        val name = name_input.text.toString()
+        val age = age_input.text.toString()
+        val hobby = hobby_input.text.toString()
+        result_text.text = "Twoje imię to $name. Masz $age lat. Twoje zainteresowania to $hobby"
+        result_text.visibility = View.VISIBLE
+        hideKeyboard(this)
+    }
 
     // from: https://stackoverflow.com/a/17789187/7586488
     private fun hideKeyboard(activity: Activity) {
